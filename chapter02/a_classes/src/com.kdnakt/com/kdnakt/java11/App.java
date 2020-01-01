@@ -18,5 +18,7 @@ public class App {
                 throw e;
             }
         }
+        vehicle = new Car(4, vehicleWeight, engine);
+        System.out.println("Car speed (" + timeSec + " sec) = " + vehicle.getSpeedMph(timeSec) + " mph");
     }
 }
