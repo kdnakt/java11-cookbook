@@ -5,6 +5,9 @@ public class Vehicle {
     private Engine engine;
 
     public Vehicle(int weightPounds, Engine engine) {
+        if (engine == null) {
+            throw new RuntimeException("Engine" + " is required parameter.");
+        }
         this.weightPounds = weightPounds;
         this.engine = engine;
     }

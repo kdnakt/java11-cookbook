@@ -9,5 +9,14 @@ public class App {
         engine.setHorsePower(horsePower);
         Vehicle vehicle = new Vehicle(vehicleWeight, engine);
         System.out.println("Vehicle speed (" + timeSec + " sec)=" + vehicle.getSpeedMph(timeSec) + " mph");
+        try {
+            new Vehicle(vehicleWeight, null);
+        } catch (RuntimeException e) {
+            if (e.getMessage().contains("Engine")) {
+                System.out.println("Expected exception throw");
+            } else {
+                throw e;
+            }
+        }
     }
 }
