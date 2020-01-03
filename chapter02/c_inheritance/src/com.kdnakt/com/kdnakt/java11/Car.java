@@ -11,4 +11,10 @@ public class Car extends Vehicle {
     public int getPassengersCount() {
         return this.passengersCount;
     }
+
+    public double getSpeedMph(double timeSec) {
+        int weight = this.weightPounds + this.passengersCount * 250;
+        double v = 2.0 * this.horsePower * 746 * timeSec * 32.17 / weight;
+        return Math.round(Math.sqrt(v) * 0.68);
+    }
 }

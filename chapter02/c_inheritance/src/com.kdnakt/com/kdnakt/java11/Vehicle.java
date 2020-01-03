@@ -1,7 +1,7 @@
 package com.kdnakt.java11;
 
 public class Vehicle {
-    private int weightPounds, horsePower;
+    protected int weightPounds, horsePower;
 
     public Vehicle(int weightPounds, int horsePower) {
         this.weightPounds = weightPounds;
@@ -12,4 +12,5 @@ public class Vehicle {
         double v = 2.0 * this.horsePower * 746 * timeSec * 32.17 / this.weightPounds;
         return Math.round(Math.sqrt(v) * 0.68);
     }
+
 }
