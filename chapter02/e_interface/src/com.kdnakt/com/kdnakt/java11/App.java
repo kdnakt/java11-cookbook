@@ -19,5 +19,8 @@ public class App {
         System.out.println("Payload = " + ((Truck)vehicle).getPayloadPounds() + " pounds");
         System.out.println("Passengers count = " + ((Car)vehicle).getPassengersCount());
         System.out.println("Crew cab speed (" + timeSec + " sec) = " + vehicle.getSpeedMph(timeSec) + " mph");
+        Truck truck = FactoryVehicle.buildTruck(3300, 4000, 246);
+        System.out.println("Payload in pounds: " +truck.getPayloadPounds());
+        System.out.println("Payload in kg: " +truck.getPayloadKg());
     }
 }
