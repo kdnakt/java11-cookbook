@@ -14,5 +14,10 @@ public class App {
         Car car = FactoryVehicle.buildCar(4, vehicleWeight, horsePower);
         car.setSpeedModel(speedModel);
         System.out.println("Car speed (" + timeSec + " sec) = " + car.getSpeedMph(timeSec) + " mph");
+        Vehicle vehicle = FactoryVehicle.buildCrewCab(4, 3300, vehicleWeight, horsePower);
+        vehicle.setSpeedModel(speedModel);
+        System.out.println("Payload = " + ((Truck)vehicle).getPayloadPounds() + " pounds");
+        System.out.println("Passengers count = " + ((Car)vehicle).getPassengersCount());
+        System.out.println("Crew cab speed (" + timeSec + " sec) = " + vehicle.getSpeedMph(timeSec) + " mph");
     }
 }
