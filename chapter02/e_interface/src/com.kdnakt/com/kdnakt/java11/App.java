@@ -19,9 +19,12 @@ public class App {
         System.out.println("Payload = " + ((Truck) vehicle).getPayloadPounds() + " pounds");
         System.out.println("Passengers count = " + ((Car) vehicle).getPassengersCount());
         System.out.println("Crew cab speed (" + timeSec + " sec) = " + vehicle.getSpeedMph(timeSec) + " mph");
-        Truck truck = FactoryVehicle.buildTruck(3300, 4000, 246);
+        horsePower = 246;
+        int payload = Truck.convertKgToPounds(1500);
+        vehicleWeight = Truck.convertKgToPounds(1800);
+        Truck truck = FactoryVehicle.buildTruck(payload, vehicleWeight, horsePower);
         System.out.println("Payload in pounds: " + truck.getPayloadPounds());
-        int kg = truck.getPayloadKg();
+        int kg = truck.getWeightKg(vehicleWeight);
         System.out.println("Payload converted to kg: " + kg);
         System.out.println("Payload converted back to pounds: " + Truck.convertKgToPounds(kg));
     }
