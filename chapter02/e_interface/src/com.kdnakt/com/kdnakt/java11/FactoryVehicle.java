@@ -46,7 +46,7 @@ public class FactoryVehicle {
         private CrewCabImpl(int passengersCount, int payloadPounds, int weightPounds, int horsePower) {
             super(weightPounds + payloadPounds + passengersCount * 250, horsePower);
             this.payloadPounds = payloadPounds;
-            this. passengersCount = passengersCount;
+            this.passengersCount = passengersCount;
         }
 
         public int getPayloadPounds() {
