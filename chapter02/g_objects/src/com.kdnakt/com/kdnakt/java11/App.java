@@ -1,5 +1,6 @@
 package com.kdnakt.java11;
 
+import java.util.Arrays;
 import java.util.function.Supplier;
 import java.util.Comparator;
 import java.util.List;
@@ -98,15 +99,71 @@ public class App {
         System.out.println(Objects.hashCode("abc"));
         // prints: 96354
 
-        System.out.println(Objects.hash((Object[])null)); // prints: 0
+        System.out.println(Objects.hash((Object[]) null)); // prints: 0
         System.out.println(Objects.hash("abc"));
         // prints: 96385
         String[] arr = { "abc" };
-        System.out.println(Objects.hash((Object[])arr));
+        System.out.println(Objects.hash((Object[]) arr));
         Object[] objs = { "a", 42, "c" };
         System.out.println(Objects.hash(objs));
         // prints: 124409
         System.out.println(Objects.hash("a", 42, "c"));
         // prints: 124409
+
+        obj = null;
+        System.out.println(obj == null); // prints: true
+        System.out.println(Objects.isNull(obj));
+        // prints: true
+        obj = "";
+        System.out.println(obj == null); // prints: false
+        System.out.println(Objects.isNull(obj));
+        // prints: false
+
+        obj = null;
+        System.out.println(obj != null); // prints: false
+        System.out.println(Objects.nonNull(obj));
+        // prints: false
+        obj = "";
+        System.out.println(obj != null); // prints: true
+        System.out.println(Objects.nonNull(obj));
+        // prints: true
+
+        String o1 = "o";
+        String o2 = "o";
+        System.out.println(Objects.equals(o1, o2));
+        // prints: true
+        System.out.println(Objects.equals(null, null));
+        // prints: true
+        Integer[] ints1 = { 1, 2, 3 };
+        Integer[] ints2 = { 1, 2, 3 };
+        System.out.println(Objects.equals(ints1, ints2));
+        // prints: false
+        Integer[] ints3 = ints1;
+        System.out.println(Objects.equals(ints1, ints3));
+        // prints: true
+
+        System.out.println(Objects.deepEquals(o1, o2));
+        // prints: true
+        System.out.println(Objects.deepEquals(null, null));
+        // prints: true
+
+        System.out.println(Objects.deepEquals(ints1, ints2));
+        // prints: true
+
+        Integer[][] iints1 = { { 1, 2, 3 }, { 1, 2, 3 } };
+        Integer[][] iints2 = { { 1, 2, 3 }, { 1, 2, 3 } };
+        System.out.println(Objects.deepEquals(iints1, iints2)); // prints: true
+        Integer[][] iints11 = { { 1, 2, 3 }, { 1, 2, 3 } };
+        Integer[][] iints12 = { { 1, 2, 3 }, { 1, 3, 2 } };
+        System.out.println(Objects.deepEquals(iints11, iints12)); // prints: false
+
+        System.out.println(Arrays.equals(ints1, ints2));
+        // prints: true
+        System.out.println(Arrays.deepEquals(ints1, ints2));
+        // prints: true
+        System.out.println(Arrays.equals(iints1, iints2));
+        // prints: false
+        System.out.println(Arrays.deepEquals(iints1, iints2));
+        // prints: true
     }
 }
