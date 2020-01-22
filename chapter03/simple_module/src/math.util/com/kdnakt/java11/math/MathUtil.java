@@ -1,6 +1,7 @@
 package com.kdnakt.java11.math;
 
 import java.util.stream.IntStream;
+import java.util.function.IntPredicate;
 
 public class MathUtil {
 
@@ -8,7 +9,7 @@ public class MathUtil {
         if (number == 1) {
             return false;
         }
-        return IntStream.range(2, num).noneMatch(i -> num % i == 0);
+        return IntStream.range(2, number).noneMatch(i -> number % i == 0);
     }
 
     public static Integer sumOfFirstNPrimes(Integer count) {
@@ -27,7 +28,7 @@ public class MathUtil {
         return computeFirstNSum(count, i -> !isEven(i));
     }
 
-    Integer computeFirstNSum(Integer count, IntPredicate filter) {
+    static Integer computeFirstNSum(Integer count, IntPredicate filter) {
         return IntStream.iterate(1, i -> i + 1)
                 .filter(filter)
                 .limit(count).sum();
